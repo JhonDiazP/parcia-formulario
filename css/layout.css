@@ -1,100 +1,181 @@
-/* Ajustes generales */
+/* Reset de márgenes y padding */
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    margin: 0;
-    padding: 0;
+    font-family: 'Arial', sans-serif;
 }
 
-/* Estilo del navbar */
-.navbar {
-    padding: 10px; /* Ajusta el padding del navbar */
-    background-color: white; /* Fondo blanco para el navbar */
-}
-
-.navbar ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.navbar li {
-    display: inline; /* Para que los elementos de la lista estén en línea */
-    margin-right: 15px; /* Espaciado entre los elementos */
-}
-
-.navbar a {
-    text-decoration: none;
-    color: black; /* Color del texto */
-    font-size: 14px; /* Tamaño de fuente más pequeño */
-}
-
-/* Estilo de la sección hero */
-.hero {
+/* Encabezado (Navbar) */
+header {
+    background-color: #fff;
+    padding: 10px 20px;
     display: flex;
-    justify-content: space-between; /* Para alinear el texto y la imagen */
-    align-items: center; /* Centrar verticalmente */
-    padding: 20px;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
 }
 
-.hero-image img {
-    max-width: 300px; /* Ancho máximo de la imagen */
-    width: 100%; /* Asegura que sea responsiva */
-    height: auto; /* Mantiene la relación de aspecto */
+.logo h1 {
+    color: #7bc043; /* Color verde */
 }
 
-.hero-text {
-    max-width: 50%; /* Limitar el ancho del texto */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
 }
 
-/* Otros estilos */
-.container {
-    margin: 100px auto;
-    width: 100%;
-    max-width: 500px;
-    padding: 20px;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-label {
-    display: block;
-    margin-bottom: 10px;
+nav ul li a {
+    text-decoration: none;
+    color: #333;
     font-weight: bold;
 }
 
-input[type="text"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+nav ul li a:hover {
+    color: #7bc043;
 }
 
-button {
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #45a049;
-}
-
-.error-box {
+.dropdown-content {
     display: none;
-    background-color: #f8d7da;
-    color: #721c24;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #f5c6cb;
-    border-radius: 4px;
+    position: absolute;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+    z-index: 1;
 }
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.icons {
+    display: flex;
+    gap: 15px;
+    font-size: 1.5rem;
+    color: #7bc043;
+}
+
+/* Hero Section (Banner) */
+.hero {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 50px 20px;
+    background-color: #f4f9f4;
+}
+
+.hero-text {
+    max-width: 50%;
+}
+
+.hero-text span {
+    color: #ffa500; /* Naranja */
+    font-size: 1.2rem;
+}
+
+.hero-text h1 {
+    font-size: 2.5rem;
+    color: #4caf50; /* Verde oscuro */
+    margin: 10px 0;
+}
+
+.search-bar {
+    margin-top: 20px;
+}
+
+.search-bar input {
+    padding: 10px;
+    width: 200px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.search-bar button {
+    padding: 10px 15px;
+    border: none;
+    background-color: #7bc043;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    height: 27vh;
+    width: 46vh;
+}
+
+@media (max-width: 500px) {
+    .hero-text h1 {
+        font-size: 2rem;
+    }
+
+    .search-bar input {
+        width: 150px;
+    }
+}
+
+@media (max-width: 500px) and (min-width: 300px) {
+    .hero {
+        flex-direction: column; /* Cambiar la dirección del flex a columna */
+        align-items: center; /* Centrar los elementos */
+    }
+
+    .hero-image {
+        order: 1; /* Asegurar que la imagen se muestre primero */
+    }
+
+    .hero-text {
+        order: 2; /* Asegurar que el texto se muestre después */
+        text-align: center; /* Centrar el texto */
+    }
+
+    .hero-text h1 {
+        color: blue; /* Cambiar el color del texto a azul */
+    }
+}
+@media (max-width: 500px) {
+    nav ul {
+        flex-direction: column; /* Cambiar la dirección del flex a columna */
+        align-items: center; /* Centrar los elementos */
+        gap: 10px; /* Espacio entre los elementos del menú */
+        width: 100%; /* Asegurar que ocupe el ancho completo */
+        padding: 0; /* Eliminar padding */
+        margin: 0; /* Eliminar margin */
+    }
+
+    nav ul li {
+        width: 100%; /* Hacer que cada elemento del menú ocupe todo el ancho */
+        text-align: center; /* Centrar el texto en cada elemento del menú */
+    }
+
+    nav ul li a {
+        padding: 10px 0; /* Añadir padding para mejorar el clic */
+        display: block; /* Hacer que el área clickeable sea más grande */
+        width: 100%; /* Asegurar que el enlace ocupe todo el ancho */
+    }
+
+    .icons {
+        flex-direction: column; /* Cambiar los iconos a columna */
+        align-items: center; /* Centrar los iconos */
+        gap: 10px; /* Espacio entre los iconos */
+    }
+}
+
+
